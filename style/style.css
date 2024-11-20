@@ -21,13 +21,15 @@
     margin: 0 auto;
     font-family: "MerriweatherBold";
 }
-
 /* Стартовый экран */
 header{
     background-image: url("../img/header_back.png");
     width: 1440px;
     height: 650px;
     margin: 0 auto;
+}
+a{
+    text-decoration: none;
 }
 .startscreen .block{
     width: 741px;
@@ -129,34 +131,27 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
 
 .Making img{
     width: 32px;
     height: 32px;
     margin-bottom: 30px;
-    
 }
 
 .Making h3{
     font-size: 22px;
-    
 }
 .Making p{
     font-family:  MontserratMed;
     font-size: 14px;
     color: #808080;
     line-height: 24px;
-    
-
 }
 .arti .artip{
     color: #F78065;
     font-size: 18px;
     font-weight: bold;
-  
-
 }
 
 
@@ -165,16 +160,13 @@ header{
     margin-top: 263px;
     display: flex;
     gap: 127px;
-    margin-bottom: 220px;
-    
-    
+    margin-bottom: 220px; 
 }
 .Joinart{
     width: 325px;
     height: 179px;
     display: flex;
     flex-direction: column;
-    
 }
 .Joinart h2{
     font-size: 36px;
@@ -248,22 +240,16 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
-
 }
 
 .Our img{
     width: 32px;
     height: 32px;
     margin-bottom: 30px;
-    
-    
 }
 
 .Our h3{
     font-size: 22px;
-  
-    
 }
 .Our p{
 
@@ -328,15 +314,12 @@ footer {
 
 .menu{
     text-align: center;
-
-   
 }
 
 .niz{
     display: flex;
     padding: 20px 0;
     justify-content: space-between;
-
 }
 .menu-main{
     display: flex;
@@ -354,19 +337,83 @@ footer {
     font-family: MontserratRegular;
 }
 
+header .menu {
+    display: none;
+}
+header .hamburger{
+    display: none;
+}
+header .logo{
+    font-size: 60px;
+    color: white;
+}
+.slider1{
+    display: none;
+}
 
 /* мобильная версия */
 @media screen and  (min-width: 375px) and (max-width: 720px) {
     .container{
         width: 100%;
         text-align: center;
-        
+    }
+    header .menu {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        flex-direction: column;
+        font-size: 15px;
+        list-style-type: none;
+        position: absolute;
+        right: 60px;
+        top: 10px;
+        background:#b8b7b7;
+        display: none;   
+    }
+    header .menu.show-menu{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    header .logo{
+        font-size: 60px;
+        color: white;
     }
     header{
         background-image: url("../img/header_back.png");
         width: 100%; 
-        background-size: cover;    
+        background-size: cover;
+        align-items: center;
+    justify-content: space-between;  
     }
+    header .hamburger{
+        cursor: pointer;
+        display: block;
+        margin: auto 10px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .active .line:nth-child(1){
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .active .line:nth-child(2){
+        opacity: 0;
+    }
+    .active .line:nth-child(3){
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .line{
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+
     .startscreen .block{
       width: 100%;
       height: 100%;
@@ -387,16 +434,45 @@ footer {
 
     .group .container{
         flex-wrap: wrap;
-        
-          
     }
     .group1{
         width: 375px;
         height: 400px;
         border: solid #F78065;
-       
-
+        position: relative;
+        overflow: hidden;
     }
+    .slider{
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    .slider1{
+        display: block;
+    } 
+    .slider img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .prev-button, .next-button{
+        position: absolute;
+        top: 25%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background: #F78065;
+        border: none;
+        font-size: 24px;
+        color: white;
+    }
+
+    .prev-button{
+        left: 10px;
+    }
+    .next-button{
+        right: 10px;
+    }
+
     .group1 h3{
         font-size: 20px;
     }
@@ -419,36 +495,27 @@ footer {
     .zago h2{
         font-size: 30px;
         margin-bottom: 40px; 
-        /* color: #F78065; */
     }
     .Making .container{
        flex-wrap: wrap;
-       
     }
     .arti{
         width: 375px;
         border: solid #F78065;
     }
-   
      .Making img{
         margin-bottom: 10px;
-        
     }
     .Making h3{
         font-size: 20px;
-        
     }
     .Making p{
         font-size: 15px;
         line-height: 24px;
-
     }
     .arti .artip{
         font-size: 18px;
-
     }
-
-
     .Join .container{
         flex-wrap: wrap; 
         margin-top: 70px;
@@ -458,25 +525,24 @@ footer {
         margin-bottom: 50px;
     }
 
+    
     .Joinimg1{
          border: solid ;
          width: 100%;
+         object-fit: cover;
     }
     .Joinimg{
         flex-wrap: wrap;
         justify-content: center;
+        display: flex;
+        transition: transform 0,5s ease-in-out;     
     }
-   
     .Joinimg1 h3{
         font-size: 20px;
     }
-
-
-
     .Our .container{
         flex-wrap: wrap;
     }
-    
     .ourarti{
         width: 375px;
         border: solid #F78065;
@@ -488,11 +554,8 @@ footer {
         width: 375px;
         height: 100%;
     }
-    
     .foot .container{
      flex-wrap: wrap;
-       
-       
     }
     .foot{
         margin-bottom: 40px;
@@ -500,16 +563,11 @@ footer {
     .Easy{
         width: 375px;
     }
-
     .text{
         margin-top: 30px;
         flex-wrap: wrap;
         justify-content: center;
     }
-    
-   
-
-
     .niz{
         flex-wrap: wrap;
     }
